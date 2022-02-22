@@ -63,7 +63,9 @@ app.layout = html.Div([
     html.Br(),
     html.Br(),
     html.Br(),
-    #html.Footer('CML Labs', style={'text-align': 'center', 'position': 'sticky'})
+    html.P('check out the code'),
+    html.A('github', href='https://github.com/chadless1/wordle-hlper'),
+    html.Footer('CML Labs', style={'text-align': 'center', 'position': 'sticky'})
 ])
 
 @app.callback(
