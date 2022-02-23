@@ -45,7 +45,7 @@ app.layout = html.Div([
     ),
     
     # Letters not used
-    html.P('Letters Not Used (cant leave empty)', style={'margin-left': 10}),
+    html.P('Letters Not Used', style={'margin-left': 10}),
     dcc.Textarea(
         id='letter_not',
         style={'width': 200, 'height': 40, 'padding-top': 20, 'font-size': 20, 'margin-left': 10},
@@ -63,7 +63,7 @@ app.layout = html.Div([
     html.Br(),
     html.Br(),
     html.Br(),
-    html.P('check out the code'),
+    html.P('check out the source code'),
     html.A('github', href='https://github.com/chadless1/wordle-hlper'),
     html.Footer('CML Labs', style={'text-align': 'center', 'position': 'sticky'})
 ])
@@ -106,9 +106,12 @@ def update_output(n_clicks, letter_1, letter_2, letter_3, letter_4, letter_5, le
         not_used_words = []
         
         for w in new_list:
-            for l in letter_not:
-                if l in w:
-                    not_used_words.append(w)
+            if not letter_not:
+                pass
+            else:
+                for l in letter_not:
+                    if l in w:
+                        not_used_words.append(w)
     
         # remove words with not used letters
         for nuw in not_used_words:
